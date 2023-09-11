@@ -1,0 +1,89 @@
+.themaToggleWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    .themaToggle {
+        position: relative;
+        width: 84px;
+        height: 44px;
+        border-radius: 50px;
+        span {
+            position: absolute;
+            top: 4px;
+            display: block;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #fff;
+            background-image: url("../../public/images/icon-bright-toggle.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
+.btn-back {
+    width: 18px;
+    height: 23px;
+    background-image: url("../../public/images/icon-back.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+}
+.light {
+    .text {
+        color: #000;
+    }
+    .background-color {
+        background-color: #fff;
+        transition: background-color 0.5s;
+    }
+    .border {
+        border: 1px solid #000;
+    }
+    .themaToggle {
+        background-color: #282828;
+        span {
+            left: 4px;
+            background-color: #fff;
+            background-image: url("../../public/images/icon-bright-toggle.png");
+        }
+    }
+    .symbol {
+        background: url("../../public/images/Logo.png") no-repeat center center;
+    }
+    .text-logo {
+        background: url("../../public/images/logo_wecode.png") no-repeat center center;
+    }
+}
+.dark {
+    .text {
+        color: #fff;
+    }
+    .background-color {
+        background-color: #282828;
+        transition: background-color 0.5s;
+    }
+    .border {
+        border: 1px solid #fff;
+    }
+    .themaToggle {
+        background-color: #fff;
+        span {
+            right: 4px;
+            background-color: #DCDCDC;
+            background-image: url("../../public/images/icon-dark-toggle.png");
+        }
+    }
+    .symbol {
+        background: url("../../public/images/Logo-w.png") no-repeat center center;
+    }
+    .text-logo {
+        background: url("../../public/images/logo_wecode2.png") no-repeat center center;
+    }
+    .button-color {
+        color: #fff;
+    }
+    .btn-back {
+        background-image: url("../../public/images/icon-back-w.png");
+    }
+}
