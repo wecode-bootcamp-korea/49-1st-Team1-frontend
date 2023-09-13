@@ -14,6 +14,15 @@ const Main = () => {
         setLikeCount((prev) => (addLike ? prev - 1 : prev + 1));
     };
 
+    const handleNavigate = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/Write");
+        } else {
+            navigate("/Login");
+        }
+    };
+
     // useEffect(() => {
     //     fetch("http://10.58.52.222:8000/threads", {
     //         method: "GET",
@@ -82,13 +91,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="btn-bottom-fixed">
-                    <button
-                        onClick={
-                            localStorage.setItem("token") ? navigate("/Write") : navigate("/Login")
-                        }
-                    >
-                        글 쓰기
-                    </button>
+                    <button onClick={handleNavigate}>글 쓰기</button>
                 </div>
             </div>
         </div>
