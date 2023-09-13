@@ -1,3 +1,8 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .themaToggleWrapper {
     display: flex;
     justify-content: space-between;
@@ -70,7 +75,7 @@
         background-color: #fff;
         span {
             right: 4px;
-            background-color: #DCDCDC;
+            background-color: #dcdcdc;
             background-image: url("../../public/images/icon-dark-toggle.png");
         }
     }
