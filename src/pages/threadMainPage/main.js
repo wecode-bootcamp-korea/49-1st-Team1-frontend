@@ -24,35 +24,35 @@ const Main = () => {
         }
     };
 
-    const goDetail = () => {
+    const goDetail = (postId) => {
         navigate("/detail");
     };
 
-    // useEffect(() => {
-    //     fetch("http://10.58.52.222:8000/threads", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json;charset=utf-8",
-    //             //authorization: localStorage.getItem("token"),
-    //         },
-    //     })
-    //         .then((res) => res.json())
-    //         .then((result) => {
-    //             console.log(result);
-    //             if (result.message === "READ_SUCCESS") {
-    //                 localStorage.setItem("token", result.accessToken);
-    //                 setList(result.data);
-    //                 console.log(result.data);
-    //             } else {
-    //                 alert("실패");
-    //             }
-    //         });
-    // }, []);
+    useEffect(() => {
+        fetch("http://10.58.52.222:8000/threads", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+                //authorization: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                if (result.message === "READ_SUCCESS") {
+                    localStorage.setItem("token", result.accessToken);
+                    setList(result.data);
+                    console.log(result.data);
+                } else {
+                    alert("실패");
+                }
+            });
+    }, []);
     return (
         <div className="main">
             <div className="main-inner">
-                {/* {list.map((data) => (
-                    <div className={`thread-form ${data.postId}`} key={data.postId}>
+                {/*{list.map((data) => (
+                    <div className={`thread-form ${data.postId}`} onClick={goDetail}>
                         <div className="top-wrapper">
                             <div className="profile">
                                 <p className="profile-img">
@@ -66,25 +66,33 @@ const Main = () => {
                         </div>
                         <div className="bottom-wrapper">
                             <div className="thread-contents">{data.content}</div>
-                            <span>댓글 00</span>
+                            <div className="btn-wrapper">
+                                <button className="btn-like-count">좋아요 {likeCount}</button>
+                                <button className="btn-comment-count">댓글</button>
+                            </div>
+                            <button className="btn-like" onClick={handleAddLike}>
+                                <img
+                                    src={`${addLike ? "/images/like.png" : "/images/unlike.png"}`}
+                                />
+                            </button>
                         </div>
                     </div>
-                ))} */}
-                <div className="thread-form" onClick={goDetail}>
+                ))}*/}
+                <div className="thread-form">
                     <div className="top-wrapper">
                         <div className="profile">
                             <p className="profile-img">
                                 <img src="/images/logo.png" alt="유저 프로필 이미지" />
                             </p>
-                            <span>크롱이</span>
+                            <span>크크크</span>
                         </div>
                         <div className="currentTime">
-                            <span>23.02.30</span>
+                            <span>캬캬캬</span>
                         </div>
                     </div>
                     <div className="bottom-wrapper">
-                        <div className="thread-contents">
-                            아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림아이스크림
+                        <div className="thread-contents" onClick={goDetail}>
+                            아니진짜왜이래
                         </div>
                         <div className="btn-wrapper">
                             <button className="btn-like-count">좋아요 {likeCount}</button>
@@ -95,6 +103,7 @@ const Main = () => {
                         </button>
                     </div>
                 </div>
+
                 <div className="btn-bottom-fixed">
                     <button onClick={handleNavigate}>글 쓰기</button>
                 </div>
