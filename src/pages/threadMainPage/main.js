@@ -14,6 +14,20 @@ const Main = () => {
         setLikeCount((prev) => (addLike ? prev - 1 : prev + 1));
     };
 
+    const handleNavigate = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/Write");
+        } else {
+            alert("로그인이 필요합니다.");
+            navigate("/Login");
+        }
+    };
+
+    const goDetail = () => {
+        navigate("/detail");
+    };
+
     // useEffect(() => {
     //     fetch("http://10.58.52.222:8000/threads", {
     //         method: "GET",
@@ -56,7 +70,7 @@ const Main = () => {
                         </div>
                     </div>
                 ))} */}
-                <div className="thread-form">
+                <div className="thread-form" onClick={goDetail}>
                     <div className="top-wrapper">
                         <div className="profile">
                             <p className="profile-img">
@@ -74,7 +88,7 @@ const Main = () => {
                         </div>
                         <div className="btn-wrapper">
                             <button className="btn-like-count">좋아요 {likeCount}</button>
-                            <details className="btn-comment">댓글</details>
+                            <button className="btn-comment-count">댓글</button>
                         </div>
                         <button className="btn-like" onClick={handleAddLike}>
                             <img src={`${addLike ? "/images/like.png" : "/images/unlike.png"}`} />
@@ -82,13 +96,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="btn-bottom-fixed">
-                    <button
-                        onClick={
-                            localStorage.setItem("token") ? navigate("/Write") : navigate("/Login")
-                        }
-                    >
-                        글 쓰기
-                    </button>
+                    <button onClick={handleNavigate}>글 쓰기</button>
                 </div>
             </div>
         </div>
