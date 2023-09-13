@@ -19,8 +19,13 @@ const Main = () => {
         if (token) {
             navigate("/Write");
         } else {
+            alert("로그인이 필요합니다.");
             navigate("/Login");
         }
+    };
+
+    const goDetail = () => {
+        navigate("/detail");
     };
 
     // useEffect(() => {
@@ -65,7 +70,7 @@ const Main = () => {
                         </div>
                     </div>
                 ))} */}
-                <div className="thread-form">
+                <div className="thread-form" onClick={goDetail}>
                     <div className="top-wrapper">
                         <div className="profile">
                             <p className="profile-img">
@@ -83,7 +88,7 @@ const Main = () => {
                         </div>
                         <div className="btn-wrapper">
                             <button className="btn-like-count">좋아요 {likeCount}</button>
-                            <details className="btn-comment">댓글</details>
+                            <button className="btn-comment-count">댓글</button>
                         </div>
                         <button className="btn-like" onClick={handleAddLike}>
                             <img src={`${addLike ? "/images/like.png" : "/images/unlike.png"}`} />

@@ -18,7 +18,7 @@ const Login = () => {
 
     //
     const handleLogin = () => {
-        fetch("http://10.58.52.222:8000/users/login", {
+        fetch("http://10.58.52.215:8000/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
@@ -33,8 +33,9 @@ const Login = () => {
                 console.log(result);
                 if (result.message === "LOGIN_SUCCESS") {
                     localStorage.setItem("token", result.accessToken);
+                    console.log(result.accessToken);
                     alert("성공");
-                    navigate("/main");
+                    navigate("/");
                 } else {
                     alert("로그인 실패");
                 }
