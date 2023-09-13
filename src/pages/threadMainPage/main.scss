@@ -1,7 +1,8 @@
 @import "/src/styles/reset.scss";
 @import "/src/styles/commonS.scss";
 
-.main {
+.main,
+.detail {
     background-color: #f3f3f3;
     @include flexCenter;
     width: 100%;
@@ -17,6 +18,7 @@
         overflow-y: scroll;
     }
     .thread-form {
+        cursor: pointer;
         width: 100%;
         padding: 40px 20px 0 20px;
         .top-wrapper {
@@ -84,6 +86,58 @@
             background-color: #2d71f7;
             color: #fff;
             font-size: 18px;
+        }
+    }
+}
+.comment-input-wrapper {
+    display: none;
+    &.on {
+        display: block;
+    }
+    .comment-input {
+        padding: 40px 20px 0 20px;
+        display: flex;
+        justify-content: space-between;
+        input {
+            height: 50px;
+            margin-right: 8px;
+        }
+        button {
+            width: 96px;
+            height: 50px;
+            border: 1px solid #999;
+            border-radius: 6px;
+            background-color: transparent;
+        }
+    }
+}
+.comment-wrapper {
+    padding: 40px 20px;
+    .user-comment-list {
+        position: relative;
+        .comment-profile {
+            display: flex;
+            align-items: center;
+            .comment-profile-img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 12px;
+                display: block;
+            }
+            .comment-user-name {
+                display: block;
+                font-weight: bold;
+            }
+            .contents {
+                padding: 8px 0;
+            }
+            .comment-date {
+                position: absolute;
+                right: 0;
+                color: #999;
+            }
         }
     }
 }
