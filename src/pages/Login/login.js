@@ -1,6 +1,6 @@
-import React, { Link, useState } from "react";
+import React, { useState } from "react";
 import "./login.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [thema, setThema] = useState("light");
@@ -16,10 +16,12 @@ const Login = () => {
 
   const isButtonEnabled = id.includes("@") && pw.length >= 5;
 
-<<<<<<< HEAD
   //
   const handleLogin = () => {
-    fetch("http://10.58.52.215:8000/users/login", {
+    // localStorage.setItem("token", JSON.stringify("ttttt"));
+    // console.log(localStorage.getItem("token"));
+    // navigate("/");
+    fetch("http://10.58.52.75:8000/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -31,43 +33,16 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.message === "LOGIN_SUCCESS") {
           localStorage.setItem("token", result.accessToken);
-          alert("성공");
-          navigate("/main");
+          // localStorage.setItem("nickName", result.nickname);
+          console.log("???", result);
+          navigate("/");
         } else {
           alert("로그인 실패");
         }
       });
   };
-=======
-    //
-    const handleLogin = () => {
-        fetch("http://10.58.52.215:8000/users/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify({
-                email: id,
-                password: pw,
-            }),
-        })
-            .then((res) => res.json())
-            .then((result) => {
-                console.log(result);
-                if (result.message === "LOGIN_SUCCESS") {
-                    localStorage.setItem("token", result.accessToken);
-                    console.log(result.accessToken);
-                    alert("성공");
-                    navigate("/");
-                } else {
-                    alert("로그인 실패");
-                }
-            });
-    };
->>>>>>> master
 
   //경로
   const navigate = useNavigate();
@@ -75,9 +50,12 @@ const Login = () => {
   const goJoin = () => {
     navigate("/signup");
   };
-  //const goMain = () => {
-  //    navigate("/main");
-  //};
+  // const goMain = () => {
+  //   navigate("/main");
+  // };
+
+  // const loginToken = localStorage.getItem("token");
+  // console.log(window.localStorage, loginToken);
 
   return (
     <div className={`login ${thema}`}>
@@ -104,7 +82,7 @@ const Login = () => {
               onChange={saveUserId}
             />
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="비밀번호"
               onChange={saveUserPw}
@@ -116,7 +94,6 @@ const Login = () => {
             >
               로그인
             </button>
-            {/* <Link to="/main">메인페이지로</Link> */}
           </div>
           <div className="form-bottom">
             <button className="btn-join button-color" onClick={goJoin}>

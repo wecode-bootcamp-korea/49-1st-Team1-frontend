@@ -14,7 +14,6 @@
         height: 90%;
         border-radius: 16px;
         border: 1px solid #e5e5e5;
-        padding-bottom: 80px;
         overflow-y: scroll;
     }
     .thread-form {
@@ -40,11 +39,33 @@
                 }
             }
             .currentTime {
+                display: flex;
+                align-items: center;
+                .update-and-delete{
+                    display: none;
+                    margin-right: 16px;
+                    font-size: 16px;
+                    &.on{
+                        display: block;
+                    }
+                    .delete-button{
+                        background-color: transparent;
+                        margin-right: 14px;
+                        color: #ff3636;
+                    }
+                    .update-button{
+                        background-color: transparent;
+                    }
+                }
                 span {
                     color: #999;
                 }
             }
         }
+        .profile-img img {
+            object-fit: cover;
+            width: 100%;
+          }
         .bottom-wrapper {
             padding-bottom: 40px;
             border-bottom: 1px solid #e6e6e6;
@@ -71,15 +92,18 @@
         }
     }
     .btn-bottom-fixed {
+        box-shadow: -27px -2px 21px -13px #666;;
         display: flex;
         justify-content: flex-end;
-        position: absolute;
+        position: sticky;
         bottom: 0;
         left: 0;
         width: 100%;
         padding: 20px 20px 40px 20px;
+        background-color: #fff;
         button {
-            display: block;
+            display: inline-block;
+            
             width: 120px;
             height: 56px;
             border-radius: 6px;

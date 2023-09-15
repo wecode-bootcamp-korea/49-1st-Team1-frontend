@@ -42,6 +42,12 @@
                     border: 1px solid black;
                     border-radius: 50%;
                     overflow: hidden;
+                    .user_profile{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+
+                    }
                 }
             }
             .thread_box{
@@ -92,4 +98,3 @@
             }
         }
     }
-}

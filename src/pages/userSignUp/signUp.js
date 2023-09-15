@@ -31,7 +31,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const goLogin = () => {
-    navigate("/Login");
+    navigate("/login");
   };
 
   const handleUserInfo = (e) => {
@@ -108,7 +108,7 @@ const Signup = () => {
       setSuccess(true);
     }
 
-    fetch("http://10.58.52.222:8000/", {
+    fetch("http://10.58.52.75:8000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
